@@ -19,3 +19,6 @@ Route::get('/', function () {
 Route::view('/dashboard', 'layout.dashboard');
 Route::view('/masterdata', 'layout.masterdata');
 Route::view('/masteruser-web', 'layout.masteruser_web');
+Route::view('/masteruser-mbl', 'layout.masteruser_mbl');
+Route::view('/lap-data', 'layout.lap_data');
+Route::view('/proses-klaim-garansi', 'layout.proses_klaimgaransi');
