@@ -17,3 +17,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::view('/dashboard', 'layout.dashboard');
+Route::view('/masterdata', 'layout.masterdata');
