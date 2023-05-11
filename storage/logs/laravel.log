@@ -1,0 +1,98 @@
+[2023-05-11 12:30:56] local.ERROR: Method Illuminate\Foundation\Application::share does not exist. {"exception":"[object] (BadMethodCallException(code: 0): Method Illuminate\\Foundation\\Application::share does not exist. at /home/zamm/Development/web/laravel/projectaiai/vendor/laravel/framework/src/Illuminate/Macroable/Traits/Macroable.php:113)
+[stacktrace]
+#0 /home/zamm/Development/web/laravel/projectaiai/vendor/maatwebsite/excel/src/Maatwebsite/Excel/ExcelServiceProvider.php(154): Illuminate\\Foundation\\Application->__call()
+#1 /home/zamm/Development/web/laravel/projectaiai/vendor/maatwebsite/excel/src/Maatwebsite/Excel/ExcelServiceProvider.php(58): Maatwebsite\\Excel\\ExcelServiceProvider->bindClasses()
+#2 /home/zamm/Development/web/laravel/projectaiai/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(764): Maatwebsite\\Excel\\ExcelServiceProvider->register()
+#3 /home/zamm/Development/web/laravel/projectaiai/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(75): Illuminate\\Foundation\\Application->register()
+#4 /home/zamm/Development/web/laravel/projectaiai/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(741): Illuminate\\Foundation\\ProviderRepository->load()
+#5 /home/zamm/Development/web/laravel/projectaiai/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#6 /home/zamm/Development/web/laravel/projectaiai/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(261): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap()
+#7 /home/zamm/Development/web/laravel/projectaiai/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(428): Illuminate\\Foundation\\Application->bootstrapWith()
+#8 /home/zamm/Development/web/laravel/projectaiai/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(198): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#9 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle()
+#10 {main}
+"} 
+[2023-05-11 12:31:09] local.ERROR: Method Illuminate\Foundation\Application::share does not exist. {"exception":"[object] (BadMethodCallException(code: 0): Method Illuminate\\Foundation\\Application::share does not exist. at /home/zamm/Development/web/laravel/projectaiai/vendor/laravel/framework/src/Illuminate/Macroable/Traits/Macroable.php:113)
+[stacktrace]
+#0 /home/zamm/Development/web/laravel/projectaiai/vendor/maatwebsite/excel/src/Maatwebsite/Excel/ExcelServiceProvider.php(154): Illuminate\\Foundation\\Application->__call()
+#1 /home/zamm/Development/web/laravel/projectaiai/vendor/maatwebsite/excel/src/Maatwebsite/Excel/ExcelServiceProvider.php(58): Maatwebsite\\Excel\\ExcelServiceProvider->bindClasses()
+#2 /home/zamm/Development/web/laravel/projectaiai/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(764): Maatwebsite\\Excel\\ExcelServiceProvider->register()
+#3 /home/zamm/Development/web/laravel/projectaiai/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(75): Illuminate\\Foundation\\Application->register()
+#4 /home/zamm/Development/web/laravel/projectaiai/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(741): Illuminate\\Foundation\\ProviderRepository->load()
+#5 /home/zamm/Development/web/laravel/projectaiai/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#6 /home/zamm/Development/web/laravel/projectaiai/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(261): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap()
+#7 /home/zamm/Development/web/laravel/projectaiai/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(428): Illuminate\\Foundation\\Application->bootstrapWith()
+#8 /home/zamm/Development/web/laravel/projectaiai/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(198): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#9 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle()
+#10 {main}
+"} 
+[2023-05-11 12:31:17] local.ERROR: Method Illuminate\Foundation\Application::share does not exist. {"exception":"[object] (BadMethodCallException(code: 0): Method Illuminate\\Foundation\\Application::share does not exist. at /home/zamm/Development/web/laravel/projectaiai/vendor/laravel/framework/src/Illuminate/Macroable/Traits/Macroable.php:113)
+[stacktrace]
+#0 /home/zamm/Development/web/laravel/projectaiai/vendor/maatwebsite/excel/src/Maatwebsite/Excel/ExcelServiceProvider.php(154): Illuminate\\Foundation\\Application->__call()
+#1 /home/zamm/Development/web/laravel/projectaiai/vendor/maatwebsite/excel/src/Maatwebsite/Excel/ExcelServiceProvider.php(58): Maatwebsite\\Excel\\ExcelServiceProvider->bindClasses()
+#2 /home/zamm/Development/web/laravel/projectaiai/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(764): Maatwebsite\\Excel\\ExcelServiceProvider->register()
+#3 /home/zamm/Development/web/laravel/projectaiai/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(75): Illuminate\\Foundation\\Application->register()
+#4 /home/zamm/Development/web/laravel/projectaiai/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(741): Illuminate\\Foundation\\ProviderRepository->load()
+#5 /home/zamm/Development/web/laravel/projectaiai/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#6 /home/zamm/Development/web/laravel/projectaiai/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(261): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap()
+#7 /home/zamm/Development/web/laravel/projectaiai/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(428): Illuminate\\Foundation\\Application->bootstrapWith()
+#8 /home/zamm/Development/web/laravel/projectaiai/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(198): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#9 /home/zamm/Development/web/laravel/projectaiai/artisan(35): Illuminate\\Foundation\\Console\\Kernel->handle()
+#10 {main}
+"} 
+[2023-05-11 12:31:27] local.ERROR: Method Illuminate\Foundation\Application::share does not exist. {"exception":"[object] (BadMethodCallException(code: 0): Method Illuminate\\Foundation\\Application::share does not exist. at /home/zamm/Development/web/laravel/projectaiai/vendor/laravel/framework/src/Illuminate/Macroable/Traits/Macroable.php:113)
+[stacktrace]
+#0 /home/zamm/Development/web/laravel/projectaiai/vendor/maatwebsite/excel/src/Maatwebsite/Excel/ExcelServiceProvider.php(154): Illuminate\\Foundation\\Application->__call()
+#1 /home/zamm/Development/web/laravel/projectaiai/vendor/maatwebsite/excel/src/Maatwebsite/Excel/ExcelServiceProvider.php(58): Maatwebsite\\Excel\\ExcelServiceProvider->bindClasses()
+#2 /home/zamm/Development/web/laravel/projectaiai/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(764): Maatwebsite\\Excel\\ExcelServiceProvider->register()
+#3 /home/zamm/Development/web/laravel/projectaiai/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(75): Illuminate\\Foundation\\Application->register()
+#4 /home/zamm/Development/web/laravel/projectaiai/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(741): Illuminate\\Foundation\\ProviderRepository->load()
+#5 /home/zamm/Development/web/laravel/projectaiai/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#6 /home/zamm/Development/web/laravel/projectaiai/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(261): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap()
+#7 /home/zamm/Development/web/laravel/projectaiai/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(428): Illuminate\\Foundation\\Application->bootstrapWith()
+#8 /home/zamm/Development/web/laravel/projectaiai/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(198): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#9 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle()
+#10 {main}
+"} 
+[2023-05-11 12:31:27] local.ERROR: Method Illuminate\Foundation\Application::share does not exist. {"exception":"[object] (BadMethodCallException(code: 0): Method Illuminate\\Foundation\\Application::share does not exist. at /home/zamm/Development/web/laravel/projectaiai/vendor/laravel/framework/src/Illuminate/Macroable/Traits/Macroable.php:113)
+[stacktrace]
+#0 /home/zamm/Development/web/laravel/projectaiai/vendor/maatwebsite/excel/src/Maatwebsite/Excel/ExcelServiceProvider.php(154): Illuminate\\Foundation\\Application->__call()
+#1 /home/zamm/Development/web/laravel/projectaiai/vendor/maatwebsite/excel/src/Maatwebsite/Excel/ExcelServiceProvider.php(58): Maatwebsite\\Excel\\ExcelServiceProvider->bindClasses()
+#2 /home/zamm/Development/web/laravel/projectaiai/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(764): Maatwebsite\\Excel\\ExcelServiceProvider->register()
+#3 /home/zamm/Development/web/laravel/projectaiai/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(75): Illuminate\\Foundation\\Application->register()
+#4 /home/zamm/Development/web/laravel/projectaiai/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(741): Illuminate\\Foundation\\ProviderRepository->load()
+#5 /home/zamm/Development/web/laravel/projectaiai/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#6 /home/zamm/Development/web/laravel/projectaiai/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(261): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap()
+#7 /home/zamm/Development/web/laravel/projectaiai/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(428): Illuminate\\Foundation\\Application->bootstrapWith()
+#8 /home/zamm/Development/web/laravel/projectaiai/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(198): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#9 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle()
+#10 {main}
+"} 
+[2023-05-11 12:32:27] local.ERROR: Method Illuminate\Foundation\Application::share does not exist. {"exception":"[object] (BadMethodCallException(code: 0): Method Illuminate\\Foundation\\Application::share does not exist. at /home/zamm/Development/web/laravel/projectaiai/vendor/laravel/framework/src/Illuminate/Macroable/Traits/Macroable.php:113)
+[stacktrace]
+#0 /home/zamm/Development/web/laravel/projectaiai/vendor/maatwebsite/excel/src/Maatwebsite/Excel/ExcelServiceProvider.php(154): Illuminate\\Foundation\\Application->__call()
+#1 /home/zamm/Development/web/laravel/projectaiai/vendor/maatwebsite/excel/src/Maatwebsite/Excel/ExcelServiceProvider.php(58): Maatwebsite\\Excel\\ExcelServiceProvider->bindClasses()
+#2 /home/zamm/Development/web/laravel/projectaiai/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(764): Maatwebsite\\Excel\\ExcelServiceProvider->register()
+#3 /home/zamm/Development/web/laravel/projectaiai/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(75): Illuminate\\Foundation\\Application->register()
+#4 /home/zamm/Development/web/laravel/projectaiai/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(741): Illuminate\\Foundation\\ProviderRepository->load()
+#5 /home/zamm/Development/web/laravel/projectaiai/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#6 /home/zamm/Development/web/laravel/projectaiai/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(261): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap()
+#7 /home/zamm/Development/web/laravel/projectaiai/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(428): Illuminate\\Foundation\\Application->bootstrapWith()
+#8 /home/zamm/Development/web/laravel/projectaiai/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(198): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#9 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle()
+#10 {main}
+"} 
+[2023-05-11 12:32:27] local.ERROR: Method Illuminate\Foundation\Application::share does not exist. {"exception":"[object] (BadMethodCallException(code: 0): Method Illuminate\\Foundation\\Application::share does not exist. at /home/zamm/Development/web/laravel/projectaiai/vendor/laravel/framework/src/Illuminate/Macroable/Traits/Macroable.php:113)
+[stacktrace]
+#0 /home/zamm/Development/web/laravel/projectaiai/vendor/maatwebsite/excel/src/Maatwebsite/Excel/ExcelServiceProvider.php(154): Illuminate\\Foundation\\Application->__call()
+#1 /home/zamm/Development/web/laravel/projectaiai/vendor/maatwebsite/excel/src/Maatwebsite/Excel/ExcelServiceProvider.php(58): Maatwebsite\\Excel\\ExcelServiceProvider->bindClasses()
+#2 /home/zamm/Development/web/laravel/projectaiai/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(764): Maatwebsite\\Excel\\ExcelServiceProvider->register()
+#3 /home/zamm/Development/web/laravel/projectaiai/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php(75): Illuminate\\Foundation\\Application->register()
+#4 /home/zamm/Development/web/laravel/projectaiai/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(741): Illuminate\\Foundation\\ProviderRepository->load()
+#5 /home/zamm/Development/web/laravel/projectaiai/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/RegisterProviders.php(17): Illuminate\\Foundation\\Application->registerConfiguredProviders()
+#6 /home/zamm/Development/web/laravel/projectaiai/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(261): Illuminate\\Foundation\\Bootstrap\\RegisterProviders->bootstrap()
+#7 /home/zamm/Development/web/laravel/projectaiai/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(428): Illuminate\\Foundation\\Application->bootstrapWith()
+#8 /home/zamm/Development/web/laravel/projectaiai/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(198): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#9 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle()
+#10 {main}
+"} 
