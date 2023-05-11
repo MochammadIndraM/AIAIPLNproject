@@ -18,3 +18,4 @@ Route::get('/', function () {
 });
 Route::view('/dashboard', 'layout.dashboard');
 Route::view('/masterdata', 'layout.masterdata');
+Route::view('/masteruser-web', 'layout.masteruser_web');
