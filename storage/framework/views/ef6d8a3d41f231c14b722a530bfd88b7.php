@@ -90,8 +90,8 @@
                         <span>Pengiriman Surat</span>
                     </a>
                 </li>
-                <li class="sidebar-item">
-                    <a href="#" class='sidebar-link'>
+                <li class="sidebar-item <?php echo $__env->yieldContent('penerimaansurat'); ?>">
+                    <a href="/penerimaan-surat" class='sidebar-link'>
                         <i class="bi bi-cloud-download"></i>
                         <span>Penerimaan Surat</span>
                     </a>

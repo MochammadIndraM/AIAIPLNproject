@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class databaseexcel extends Model
+class surat extends Model
 {
     use HasFactory;
-    protected $table = 'surat_detail';
+    protected $table = 'surat';
     public $incrementing = false;
     public $timestamps = false;
 
-    protected $fillable = array('no_berita_acara', 'no_meter', 'kriteria_garansi', 'gangguan', 'tahun_buat', 'tahun_ganti');
+    protected $fillable = array('no_berita_acara', 'tanggal', 'unit_induk', 'up3', 'ulp', 'nama_pengirim', 'catatan');
 }
