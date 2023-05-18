@@ -1,6 +1,6 @@
 @extends('app.head')
 @section('title')
-    Master User Web Page
+    Master User Web
 @endsection
 @section('pageheading')
     Master User Web
@@ -334,7 +334,7 @@
                                 </button>
                                 <button type="submit" class="btn btn-primary ml-1" id="btn_upload">
                                     <i class="bx bx-check d-block d-sm-none"></i>
-                                    <span class="d-none d-sm-block">Tambah</span>
+                                    <span class="d-none d-sm-block">Edit</span>
                                 </button>
                             </div>
                         </form>
@@ -346,12 +346,12 @@
         {{-- modal hapus --}}
         <div class="modal fade" id="hapusModal" tabindex="-1" aria-labelledby="hapusModalTitle" style="display: none;"
             aria-modal="true" role="dialog">
-            <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable modal-lg"
+            <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable modal-md"
                 role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="hapusModalTitle">
-                            Hapus Paket Material
+                            Hapus Data
                         </h5>
                         <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -372,7 +372,7 @@
                             <i class="bx bx-x d-block d-sm-none"></i>
                             <span class="d-none d-sm-block">Close</span>
                         </button>
-                        <a href="/masteruser-web/destroy/{{$item->kode_user}}">
+                        <a href="/masteruser-mbl/destroy/{{count($crudweb)==0 ? '' : $item->kode_user}}">
                             <button type="button" class="btn btn-danger ml-1" data-bs-dismiss="modal" >
                                 <i class="bx bx-check d-block d-sm-none"></i>
                                 <span class="d-none d-sm-block">hapus</span>

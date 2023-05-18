@@ -1,5 +1,5 @@
 <div id="sidebar" class="active">
-    <div class="sidebar-wrapper active">
+    <div class="sidebar-wrapper active  ">
         <div class="sidebar-header position-relative">
             <div class="d-flex justify-content-between align-items-center">
                 <div class="logo">
@@ -39,7 +39,7 @@
                 </div>
             </div>
         </div>
-        <div class="sidebar-menu">
+        <div class="sidebar-menu position-relative">
             <ul class="menu">
                 <li class="sidebar-title">Menu</li>
 
@@ -96,9 +96,55 @@
                         <span>Penerimaan Surat</span>
                     </a>
                 </li>
+                <li class="sidebar-item <?php echo $__env->yieldContent('logout'); ?> mt-auto">
+                    <a href="#" class="sidebar-link" data-bs-toggle="modal" data-bs-target="#logoutModal" >
+                        <i class="bi bi-layout-sidebar-inset-reverse"></i>
+                        <span>Logout</span>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
 </div>
 
+
+<div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalTitle" style="display: none;"
+            aria-modal="true" role="dialog">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable modal-md"
+                role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="logoutModalTitle">
+                            Logout
+                        </h5>
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="feather feather-x">
+                                <line x1="18" y1="6" x2="6" y2="18"></line>
+                                <line x1="6" y1="6" x2="18" y2="18"></line>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            Apakah anda yakin akan keluar??
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
+                            <i class="bx bx-x d-block d-sm-none"></i>
+                            <span class="d-none d-sm-block">Close</span>
+                        </button>
+                        <a href="/logout">
+                            <button type="button" class="btn btn-danger ml-1" data-bs-dismiss="modal" >
+                                <i class="bx bx-check d-block d-sm-none"></i>
+                                <span class="d-none d-sm-block">Logout</span>
+                            </button>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
 <?php /**PATH /home/zamm/Development/web/laravel/projectaiai/resources/views/app/sidebar.blade.php ENDPATH**/ ?>

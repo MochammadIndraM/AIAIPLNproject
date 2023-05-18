@@ -9,9 +9,12 @@
     <link rel="stylesheet" href="assets/css/pages/auth.css">
     <link rel="shortcut icon" href="assets/images/logo/favicon.svg" type="image/x-icon">
     <link rel="shortcut icon" href="assets/images/logo/favicon.png" type="image/png">
+
 </head>
 
 <body>
+    @include('sweetalert::alert')
+
     <div id="auth">
 
         <div class="row h-100">
@@ -23,7 +26,7 @@
                     <h1 class="auth-title">Log in.</h1>
                     <p class="auth-subtitle mb-5">Log in with your data that you entered during registration.</p>
 
-                    <form action="{{ url('/cekLogin') }}" method="POST" data-parsley-validate novalidate>
+                    <form action="{{ url('/login') }}" method="POST" data-parsley-validate novalidate>
                         @csrf
                         <div class="form-group position-relative has-icon-left mb-4">
                             <input type="text" id="username" class="form-control form-control-xl"
@@ -42,12 +45,6 @@
 
                         <button class="btn btn-primary btn-block btn-lg shadow-lg mt-5" type="submit">Log in</button>
                     </form>
-
-                    <div class="text-center mt-5 text-lg fs-4">
-                        <p class="text-gray-600">Don't have an account? <a href="auth-register.html"
-                                class="font-bold">Sign
-                                up</a>.</p>
-                    </div>
                 </div>
             </div>
             <div class="col-lg-7 d-none d-lg-block">
