@@ -9,7 +9,7 @@ class Daftar extends Model
 {
   use HasFactory;
 
-  protected $table = 'master-user'; // mendevinisikan nama table
+  protected $table = 'master_user'; // mendevinisikan nama table
   protected $primaryKey = 'kode_user'; // mendevinisikan primary key
   public $incrementing = false; // auto pada primaryKey incremment false
 

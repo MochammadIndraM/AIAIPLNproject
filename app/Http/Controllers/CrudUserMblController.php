@@ -21,30 +21,35 @@ class CrudUserMblController extends Controller
 
     public function store(Request $request)
     {
-        $id =  'USRMBL' . str_shuffle(date('YmdHis'));
-        // dd($id);
-        $password = Hash::make($request ->input('password'));
+        $id = 'USRMBL' . str_shuffle(date('YmdHis'));
+        $password = Hash::make($request->input('password'));
+
         $request->validate([
             'nama' => 'required',
             'unit_induk' => 'required',
             'up3' => 'required',
             'ulp' => 'required',
             'username' => 'required',
-            'password' => 'required' ,
+            'password' => 'required',
             'role' => 'required',
         ]);
 
+        $existingUser = usermbl::where('username', $request->username)->first();
+        if ($existingUser) {
+            Alert::error('Gagal', 'Username sudah digunakan!')->autoClose(3000)->timerProgressBar();
+            return redirect('/masteruser-mbl');
+        }
+
         usermbl::create([
             'kode_user' => $id,
-            'nama' => $request -> nama,
-            'unit_induk' => $request -> unit_induk,
-            'up3' => $request -> up3,
-            'ulp' => $request -> ulp,
-            'username' => $request -> username,
+            'nama' => $request->nama,
+            'unit_induk' => $request->unit_induk,
+            'up3' => $request->up3,
+            'ulp' => $request->ulp,
+            'username' => $request->username,
             'password' => $password,
-            'role' => $request -> role,
+            'role' => $request->role,
         ]);
-
 
         Alert::success('Berhasil', 'Berhasil Menambah Data');
         return redirect('/masteruser-mbl');

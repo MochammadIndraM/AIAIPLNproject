@@ -14,10 +14,10 @@
         <div class="card">
             <div class="card-body">
                 <div class="row">
-                    <div class="d-flex justify-content-end">
+                    {{-- <div class="d-flex justify-content-end">
                         <a href="#" class="btn icon btn-success" data-bs-toggle="modal" data-bs-target="#tambahModal"><i
                                 class="bi bi-plus-lg"></i></a>
-                    </div>
+                    </div> --}}
                 </div>
                 <div class="table-responsive">
                     <table class="table table-striped mb-0">
@@ -58,9 +58,9 @@
                                         {{ $item->role }}
                                     </td>
                                     <td>
-                                        <button class="btn icon btn-warning" data-bs-toggle="modal" data-bs-target="#editModal" onclick="editData({{$item}})">
+                                        {{-- <button class="btn icon btn-warning" data-bs-toggle="modal" data-bs-target="#editModal" onclick="editData({{$item}})">
                                             <i class="bi bi-pencil-fill"></i>
-                                        </button>
+                                        </button> --}}
                                         <button class="btn icon btn-danger" data-bs-toggle="modal" data-bs-target="#hapusModal" >
                                             <i class="bi bi-trash-fill"></i>
                                         </button>
@@ -75,7 +75,7 @@
         </div>
 
         {{-- modal tambah --}}
-        <div class="modal fade" id="tambahModal" tabindex="-1" aria-labelledby="tambahModalTitle" style="display: none;"
+        {{-- <div class="modal fade" id="tambahModal" tabindex="-1" aria-labelledby="tambahModalTitle" style="display: none;"
             aria-modal="true" role="dialog">
             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg" role="document">
                 <div class="modal-content">
@@ -201,11 +201,11 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
 
 
         {{-- modal edit --}}
-        <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalTitle" style="display: none;"
+        {{-- <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalTitle" style="display: none;"
             aria-modal="true" role="dialog">
             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg" role="document">
                 <div class="modal-content">
@@ -341,7 +341,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
 
         {{-- modal hapus --}}
         <div class="modal fade" id="hapusModal" tabindex="-1" aria-labelledby="hapusModalTitle" style="display: none;"

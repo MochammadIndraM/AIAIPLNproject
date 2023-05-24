@@ -11,44 +11,51 @@ class CrudUserWebController extends Controller
 {
     public function index()
     {
-        $crudweb = userweb::where('role', 'admin')->get();
+        $crudweb = userweb::where('role', 'Manager ULP')
+        ->orWhere('role', 'Manager UP3')
+        ->orWhere('role', 'Pihak Pabrik')
 
-        // dd($crudweb);
-        // dd($crudweb);
+        ->get();
         return view('layout.masteruser_web', compact('crudweb'));
     }
 
 
     public function store(Request $request)
-    {
-        $id =  'USRWEB' . str_shuffle(date('YmdHis'));
-        // dd($id);
-        $password = Hash::make($request ->input('password'));
-        $request->validate([
-            'nama' => 'required',
-            'unit_induk' => 'required',
-            'up3' => 'required',
-            'ulp' => 'required',
-            'username' => 'required',
-            'password' => 'required' ,
-            'role' => 'required',
-        ]);
+{
+    $id = 'USRWEB' . str_shuffle(date('YmdHis'));
+    $password = Hash::make($request->input('password'));
 
-        userweb::create([
-            'kode_user' => $id,
-            'nama' => $request -> nama,
-            'unit_induk' => $request -> unit_induk,
-            'up3' => $request -> up3,
-            'ulp' => $request -> ulp,
-            'username' => $request -> username,
-            'password' => $password,
-            'role' => $request -> role,
-        ]);
+    $request->validate([
+        'nama' => 'required',
+        'unit_induk' => 'required',
+        'up3' => 'required',
+        'ulp' => 'required',
+        'username' => 'required',
+        'password' => 'required',
+        'role' => 'required',
+    ]);
 
-
-        Alert::success('Berhasil', 'Berhasil Menambah Data');
+    $existingUser = userweb::where('username', $request->username)->first();
+    if ($existingUser) {
+        Alert::error('Gagal', 'Username sudah digunakan!')->autoClose(3000)->timerProgressBar();
         return redirect('/masteruser-web');
     }
+
+    userweb::create([
+        'kode_user' => $id,
+        'nama' => $request->nama,
+        'unit_induk' => $request->unit_induk,
+        'up3' => $request->up3,
+        'ulp' => $request->ulp,
+        'username' => $request->username,
+        'password' => $password,
+        'role' => $request->role,
+    ]);
+
+    Alert::success('Berhasil', 'Berhasil Menambah Data');
+    return redirect('/masteruser-web');
+}
+
 
 
     public function update(Request $request)

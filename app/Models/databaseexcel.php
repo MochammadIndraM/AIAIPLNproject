@@ -12,5 +12,5 @@ class databaseexcel extends Model
     public $incrementing = false;
     public $timestamps = false;
 
-    protected $fillable = array('no_berita_acara', 'no_meter', 'kriteria_garansi', 'gangguan', 'tahun_buat', 'tahun_ganti');
+    protected $guarded = [];
 }

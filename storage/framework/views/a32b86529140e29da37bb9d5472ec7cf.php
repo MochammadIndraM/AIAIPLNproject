@@ -152,19 +152,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-12 mb-12">
-                                        <div class="form-group row align-items-center">
-                                            <label class="col-lg-3 col-3 col-form-label">
-                                                <h6>Tgl Surat</h6>
-                                            </label>
-                                            <div class="col-lg-8 col-8">
-                                                <input type="datetime-local" id="tanggal" class="form-control"
-                                                    name="tanggal" placeholder="">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                
                                 <div class="row">
                                     <div class="col-md-12 mb-12">
                                         <div class="form-group row align-items-center">

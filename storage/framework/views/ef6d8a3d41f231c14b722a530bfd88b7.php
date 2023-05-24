@@ -42,6 +42,7 @@
         <div class="sidebar-menu position-relative">
             <ul class="menu">
                 <li class="sidebar-title">Menu</li>
+                <?php if(Auth::user()->role == "admin" OR Auth::user()->role == "Manager ULP" OR Auth::user()->role == "Manager UP3"): ?>
 
                 <li class="sidebar-item <?php echo $__env->yieldContent('dashboard'); ?>">
                     <a href="/dashboard" class='sidebar-link'>
@@ -77,13 +78,14 @@
                     </a>
                     <ul class="submenu ">
                         <li class="submenu-item ">
-                            <a href="/lap-data">Lap Data</a>
+                            <a href="/lap_data">Lap Data</a>
                         </li>
                         <li class="submenu-item ">
                             <a href="/proses-klaim-garansi">Proses Klaim Garansi</a>
                         </li>
                     </ul>
                 </li>
+                <?php endif; ?>
                 <li class="sidebar-item <?php echo $__env->yieldContent('pengirimansurat'); ?>">
                     <a href="/pengiriman-surat" class='sidebar-link'>
                         <i class="bi bi-arrow-up-square"></i>
@@ -96,6 +98,8 @@
                         <span>Penerimaan Surat</span>
                     </a>
                 </li>
+
+
                 <li class="sidebar-item <?php echo $__env->yieldContent('logout'); ?> mt-auto">
                     <a href="#" class="sidebar-link" data-bs-toggle="modal" data-bs-target="#logoutModal" >
                         <i class="bi bi-layout-sidebar-inset-reverse"></i>

@@ -1,10 +1,15 @@
 <?php
+
+use App\Http\Controllers\Cetakexceldb;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DatabaseexcelController;
 use App\Http\Controllers\SuratController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\CrudUserWebController;
 use App\Http\Controllers\CrudUserMblController;
+use App\Http\Controllers\CrudMasterDataController;
+
+
 use App\Models\surat;
 
 Route::get('/', [LoginController::class, 'index'])->name('login');
@@ -15,13 +20,14 @@ Route::middleware(['auth'])->group(function () {
     Route::view('/dashboard', 'layout.dashboard');
     Route::view('/masterdata', 'layout.masterdata');
     Route::view('/masteruser-mbl', 'layout.masteruser_mbl');
-    Route::view('/lap-data', 'layout.lap_data');
+    Route::view('/lap_data', 'layout.lap_data');
     Route::view('/proses-klaim-garansi', 'layout.proses_klaimgaransi');
     Route::view('/pengiriman-surat', 'layout.pengiriman_surat');
     Route::view('/penerimaan-surat', 'layout.penerimaan_surat');
 
     Route::post('/uploadexcel', [DatabaseexcelController::class, 'uploadexcel'])->name('uploadexcel');
     Route::get('/penerimaan-surat', [DatabaseexcelController::class, 'penerimaansurat'])->name('penerimaansurat');
+    Route::get('/penerimaan-surat/{no_berita_acara}', [DatabaseexcelController::class, 'detail_surat'])->name('detail_surat');
 
     Route::prefix('masteruser-web')->group(function () {
         Route::get('/', [CrudUserWebController::class, 'index']);
@@ -35,5 +41,18 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/store', [CrudUserMblController::class, 'store'])->name('proses');
         Route::post('/update', [CrudUserMblController::class, 'update'])->name('update');
         Route::get('/destroy/{id}', [CrudUserMblController::class, 'destroy']);
+    });
+
+    Route::prefix('masterdata')->group(function () {
+        Route::get('/', [CrudMasterDataController::class, 'index']);
+        Route::post('/store', [CrudMasterDataController::class, 'store'])->name('masterdata.store');
+        Route::post('/update', [CrudMasterDataController::class, 'update'])->name('masterdata.update');
+        Route::get('/destroy/{id}', [CrudMasterDataController::class, 'destroy'])->name('masterdata.destroy');
+    });
+
+    Route::prefix('lap_data')->group(function () {
+        Route::get('/', [Cetakexceldb::class, 'index']);
+        Route::get('/cetakexceldb/export', [Cetakexceldb::class, 'export'])->name('cetakexceldb.export');
+
     });
 });

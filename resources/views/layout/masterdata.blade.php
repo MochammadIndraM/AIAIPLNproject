@@ -32,22 +32,33 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($crudmasterdata as $item)
                             <tr>
-                                <td>45007665941</td>
-                                <td>TIDAK GARANSI</td>
-                                <td>LCD ERROR</td>
-                                <td>2015</td>
-                                <td>2020</td>
-
                                 <td>
-                                    <div class="buttons">
-                                        <a href="#" class="btn icon btn-warning" data-bs-toggle="modal"
-                                            data-bs-target="#editModal"><i class="bi bi-pencil-fill"></i></a>
-                                        <a href="#" class="btn icon btn-danger" data-bs-toggle="modal"
-                                        data-bs-target="#hapusModal"><i class="bi bi-trash-fill"></i></a>
-                                    </div>
+                                    {{ $item->no_meter }}
+                                </td>
+                                <td>
+                                    {{ $item->kriteria_garansi }}
+                                </td>
+                                <td>
+                                    {{ $item->gangguan }}
+                                </td>
+                                <td>
+                                    {{ $item->tahun_buat }}
+                                </td>
+                                <td>
+                                    {{ $item->tahun_ganti }}
+                                </td>
+                                <td>
+                                    <button class="btn icon btn-warning" data-bs-toggle="modal" data-bs-target="#editModal" onclick="editData({{$item}})">
+                                        <i class="bi bi-pencil-fill"></i>
+                                    </button>
+                                    <button class="btn icon btn-danger" data-bs-toggle="modal" data-bs-target="#hapusModal" >
+                                        <i class="bi bi-trash-fill"></i>
+                                    </button>
                                 </td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -57,13 +68,10 @@
         {{-- modal tambah --}}
         <div class="modal fade" id="tambahModal" tabindex="-1" aria-labelledby="tambahModalTitle" style="display: none;"
             aria-modal="true" role="dialog">
-            <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable modal-lg"
-                role="document">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-md" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="tambahModalTitle">
-                            Tambah Master User
-                        </h5>
+                        <h5 class="modal-title" id="tambahModalTitle">Tambah User</h5>
                         <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -74,150 +82,90 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form class="form form-horizontal">
+                        <form class="form form-horizontal" action="/masterdata/store" method="POST"
+                            enctype="multipart/form-data" data-parsley-validate>
+                            @csrf
                             <div class="form-body">
                                 <div class="row">
-                                    <div class="col-md-6 mb-6">
+                                    <div class="col-md-12 mb-12">
                                         <div class="form-group row align-items-center">
-                                            <div class="col-lg-4 col-4">
-                                                <label class="col-form-label">
-                                                    <h6>Kode Paket</h6>
-                                                </label>
-                                            </div>
+                                            <label for="no_meter" class="col-lg-3 col-3 col-form-label">
+                                                <h6>No meter</h6>
+                                            </label>
                                             <div class="col-lg-8 col-8">
-                                                <input type="text" class="form-control" id="disabledInput"
-                                                    disabled="">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 mb-6">
-                                        <div class="form-group row align-items-center">
-                                            <div class="col-lg-2 col-2">
-                                                <label class="col-form-label">
-                                                    <h6>Tarif</h6>
-                                                </label>
-                                            </div>
-                                            <div class="col-lg-9 col-9">
-                                                <fieldset class="form-group">
-                                                    <select class="form-select" id="basicSelect">
-                                                        <option>IT</option>
-                                                        <option>Blade Runner</option>
-                                                        <option>Thor Ragnarok</option>
-                                                    </select>
-                                                </fieldset>
+                                                <input type="text" id="no_meter" class="form-control" placeholder=""
+                                                    name="no_meter" required>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6 mb-6">
+                                    <div class="col-md-12 mb-12">
                                         <div class="form-group row align-items-center">
-                                            <div class="col-lg-4 col-4">
-                                                <label class="col-form-label">
-                                                    <h6>Gudang Induk</h6>
-                                                </label>
-                                            </div>
+                                            <label class="col-lg-3 col-3 col-form-label">
+                                                <h6>Kriteria Garansi</h6>
+                                            </label>
                                             <div class="col-lg-8 col-8">
                                                 <fieldset class="form-group">
-                                                    <select class="form-select" disabled="disabled" id="disabledSelect">
-                                                        <option>Green</option>
-                                                        <option>Red</option>
-                                                        <option>Blue</option>
+                                                    <select class="form-select" id="basicSelect" name="kriteria_garansi" id="kriteria_garansi">
+                                                      <option value="Garansi">Garansi</option>
+                                                      <option value="Tidak Garansi">Tidak Garansi</option>
                                                     </select>
-                                                </fieldset>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 mb-6">
-                                        <div class="form-group row align-items-center">
-                                            <div class="col-lg-2 col-2">
-                                                <label class="col-form-label">
-                                                    <h6>Daya</h6>
-                                                </label>
-                                            </div>
-                                            <div class="col-lg-9 col-9">
-                                                <fieldset class="form-group">
-                                                    <select class="form-select" id="basicSelect">
-                                                        <option>IT</option>
-                                                        <option>Blade Runner</option>
-                                                        <option>Thor Ragnarok</option>
-                                                    </select>
-                                                </fieldset>
+                                                  </fieldset>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6 mb-6">
+                                    <div class="col-md-12 mb-12">
                                         <div class="form-group row align-items-center">
-                                            <div class="col-lg-4 col-4">
-                                                <label class="col-form-label">
-                                                    <h6>Jenis Transaksi</h6>
-                                                </label>
-                                            </div>
+                                            <label class="col-lg-3 col-3 col-form-label">
+                                                <h6>Gangguan</h6>
+                                            </label>
                                             <div class="col-lg-8 col-8">
-                                                <fieldset class="form-group">
-                                                    <select class="form-select" id="basicSelect">
-                                                        <option>IT</option>
-                                                        <option>Blade Runner</option>
-                                                        <option>Thor Ragnarok</option>
-                                                    </select>
-                                                </fieldset>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 mb-6">
-                                        <div class="form-group row align-items-center">
-                                            <div class="col-lg-2 col-2">
-                                                <label class="col-form-label">
-                                                    <h6>Tarif Lama</h6>
-                                                </label>
-                                            </div>
-                                            <div class="col-lg-9 col-9">
-                                                <fieldset class="form-group">
-                                                    <select class="form-select" id="basicSelect">
-                                                        <option>IT</option>
-                                                        <option>Blade Runner</option>
-                                                        <option>Thor Ragnarok</option>
-                                                    </select>
-                                                </fieldset>
+                                                <textarea class="form-control" id="gangguan" rows="3" name="gangguan"></textarea>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6 mb-6 offset-6">
+                                    <div class="col-md-12 mb-12">
                                         <div class="form-group row align-items-center">
-                                            <div class="col-lg-2 col-2">
-                                                <label class="col-form-label">
-                                                    <h6>Daya Lama</h6>
-                                                </label>
+                                            <label class="col-lg-3 col-3 col-form-label">
+                                                <h6>Tahun Buat</h6>
+                                            </label>
+                                            <div class="col-lg-8 col-8">
+                                                <input type="number" class="form-control" id="tahun_buat" placeholder=""
+                                                     name="tahun_buat" required>
                                             </div>
-                                            <div class="col-lg-9 col-9">
-                                                <fieldset class="form-group">
-                                                    <select class="form-select" id="basicSelect">
-                                                        <option>IT</option>
-                                                        <option>Blade Runner</option>
-                                                        <option>Thor Ragnarok</option>
-                                                    </select>
-                                                </fieldset>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 mb-12">
+                                        <div class="form-group row align-items-center">
+                                            <label class="col-lg-3 col-3 col-form-label">
+                                                <h6>Tahun Ganti</h6>
+                                            </label>
+                                            <div class="col-lg-8 col-8">
+                                                <input type="number" class="form-control" id="tahun_ganti" placeholder=""
+                                                     name="tahun_ganti" required>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
+                                    <i class="bx bx-x d-block d-sm-none"></i>
+                                    <span class="d-none d-sm-block">Close</span>
+                                </button>
+                                <button type="submit" class="btn btn-primary ml-1" id="btn_upload">
+                                    <i class="bx bx-check d-block d-sm-none"></i>
+                                    <span class="d-none d-sm-block">Tambah</span>
+                                </button>
+                            </div>
                         </form>
-
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
-                            <i class="bx bx-x d-block d-sm-none"></i>
-                            <span class="d-none d-sm-block">Close</span>
-                        </button>
-                        <button type="button" class="btn btn-success ml-1" data-bs-dismiss="modal">
-                            <i class="bx bx-check d-block d-sm-none"></i>
-                            <span class="d-none d-sm-block">Tambah</span>
-                        </button>
                     </div>
                 </div>
             </div>
@@ -226,13 +174,10 @@
         {{-- modal edit --}}
         <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalTitle" style="display: none;"
             aria-modal="true" role="dialog">
-            <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable modal-lg"
-                role="document">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-md" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="editModalTitle">
-                            Edit Paket Material
-                        </h5>
+                        <h5 class="modal-title" id="editModalTitle">Edit Data</h5>
                         <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -243,35 +188,34 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form class="form form-horizontal">
+                        <form class="form form-horizontal" action="/masterdata/update" method="POST"
+                            enctype="multipart/form-data" data-parsley-validate>
+                            @csrf
                             <div class="form-body">
                                 <div class="row">
-                                    <div class="col-md-6 mb-6">
+                                    <div class="col-md-12 mb-12">
                                         <div class="form-group row align-items-center">
-                                            <div class="col-lg-4 col-4">
-                                                <label class="col-form-label">
-                                                    <h6>Kode Paket</h6>
-                                                </label>
-                                            </div>
+                                            <label for="no_meter" class="col-lg-3 col-3 col-form-label">
+                                                <h6>No meter</h6>
+                                            </label>
                                             <div class="col-lg-8 col-8">
-                                                <input type="text" class="form-control" id="disabledInput"
-                                                    disabled="">
+                                                <input type="text" id="no_meter_edit" class="form-control" placeholder=""
+                                                    name="no_meter" value="{{old('no_meter')}}" required>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 mb-6">
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 mb-12">
                                         <div class="form-group row align-items-center">
-                                            <div class="col-lg-2 col-2">
-                                                <label class="col-form-label">
-                                                    <h6>Tarif</h6>
-                                                </label>
-                                            </div>
-                                            <div class="col-lg-9 col-9">
+                                            <label class="col-lg-3 col-3 col-form-label">
+                                                <h6>Kriteria Garansi</h6>
+                                            </label>
+                                            <div class="col-lg-8 col-8">
                                                 <fieldset class="form-group">
-                                                    <select class="form-select" id="basicSelect">
-                                                        <option>IT</option>
-                                                        <option>Blade Runner</option>
-                                                        <option>Thor Ragnarok</option>
+                                                    <select class="form-select" name="kriteria_garansi" id="kriteria_garansi_edit">
+                                                        <option value="Garansi">Garansi</option>
+                                                        <option value="Tidak Garansi">Tidak Garansi</option>
                                                     </select>
                                                 </fieldset>
                                             </div>
@@ -279,114 +223,55 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6 mb-6">
+                                    <div class="col-md-12 mb-12">
                                         <div class="form-group row align-items-center">
-                                            <div class="col-lg-4 col-4">
-                                                <label class="col-form-label">
-                                                    <h6>Gudang Induk</h6>
-                                                </label>
-                                            </div>
+                                            <label class="col-lg-3 col-3 col-form-label">
+                                                <h6>Gangguan</h6>
+                                            </label>
                                             <div class="col-lg-8 col-8">
-                                                <fieldset class="form-group">
-                                                    <select class="form-select" disabled="disabled" id="disabledSelect">
-                                                        <option>Green</option>
-                                                        <option>Red</option>
-                                                        <option>Blue</option>
-                                                    </select>
-                                                </fieldset>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 mb-6">
-                                        <div class="form-group row align-items-center">
-                                            <div class="col-lg-2 col-2">
-                                                <label class="col-form-label">
-                                                    <h6>Daya</h6>
-                                                </label>
-                                            </div>
-                                            <div class="col-lg-9 col-9">
-                                                <fieldset class="form-group">
-                                                    <select class="form-select" id="basicSelect">
-                                                        <option>IT</option>
-                                                        <option>Blade Runner</option>
-                                                        <option>Thor Ragnarok</option>
-                                                    </select>
-                                                </fieldset>
+                                                <textarea class="form-control" id="gangguan_edit" rows="3" name="gangguan"></textarea>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6 mb-6">
+                                    <div class="col-md-12 mb-12">
                                         <div class="form-group row align-items-center">
-                                            <div class="col-lg-4 col-4">
-                                                <label class="col-form-label">
-                                                    <h6>Jenis Transaksi</h6>
-                                                </label>
-                                            </div>
+                                            <label class="col-lg-3 col-3 col-form-label">
+                                                <h6>Tahun Buat</h6>
+                                            </label>
                                             <div class="col-lg-8 col-8">
-                                                <fieldset class="form-group">
-                                                    <select class="form-select" id="basicSelect">
-                                                        <option>IT</option>
-                                                        <option>Blade Runner</option>
-                                                        <option>Thor Ragnarok</option>
-                                                    </select>
-                                                </fieldset>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 mb-6">
-                                        <div class="form-group row align-items-center">
-                                            <div class="col-lg-2 col-2">
-                                                <label class="col-form-label">
-                                                    <h6>Tarif Lama</h6>
-                                                </label>
-                                            </div>
-                                            <div class="col-lg-9 col-9">
-                                                <fieldset class="form-group">
-                                                    <select class="form-select" id="basicSelect">
-                                                        <option>IT</option>
-                                                        <option>Blade Runner</option>
-                                                        <option>Thor Ragnarok</option>
-                                                    </select>
-                                                </fieldset>
+                                                <input type="number" class="form-control" id="tahun_buat_edit" placeholder=""
+                                                     name="tahun_buat" required>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6 mb-6 offset-6">
+                                    <div class="col-md-12 mb-12">
                                         <div class="form-group row align-items-center">
-                                            <div class="col-lg-2 col-2">
-                                                <label class="col-form-label">
-                                                    <h6>Daya Lama</h6>
-                                                </label>
-                                            </div>
-                                            <div class="col-lg-9 col-9">
-                                                <fieldset class="form-group">
-                                                    <select class="form-select" id="basicSelect">
-                                                        <option>IT</option>
-                                                        <option>Blade Runner</option>
-                                                        <option>Thor Ragnarok</option>
-                                                    </select>
-                                                </fieldset>
+                                            <label class="col-lg-3 col-3 col-form-label">
+                                                <h6>Tahun Ganti</h6>
+                                            </label>
+                                            <div class="col-lg-8 col-8">
+                                                <input type="number" class="form-control" id="tahun_ganti_edit" placeholder=""
+                                                     name="tahun_ganti" required>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
+                                    <i class="bx bx-x d-block d-sm-none"></i>
+                                    <span class="d-none d-sm-block">Close</span>
+                                </button>
+                                <button type="submit" class="btn btn-primary ml-1" id="btn_upload">
+                                    <i class="bx bx-check d-block d-sm-none"></i>
+                                    <span class="d-none d-sm-block">Edit</span>
+                                </button>
+                            </div>
                         </form>
-
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
-                            <i class="bx bx-x d-block d-sm-none"></i>
-                            <span class="d-none d-sm-block">Close</span>
-                        </button>
-                        <button type="button" class="btn btn-warning ml-1" data-bs-dismiss="modal">
-                            <i class="bx bx-check d-block d-sm-none"></i>
-                            <span class="d-none d-sm-block">Edit</span>
-                        </button>
                     </div>
                 </div>
             </div>
@@ -400,7 +285,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="hapusModalTitle">
-                            Hapus Paket Material
+                            Hapus Data
                         </h5>
                         <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -413,18 +298,22 @@
                     </div>
                     <div class="modal-body">
                         <p>
-                          Apakah anda yakin akan menghapus data ini??
+                            Apakah anda yakin akan menghapus data ini??
                         </p>
-                      </div>
+                    </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
                             <i class="bx bx-x d-block d-sm-none"></i>
                             <span class="d-none d-sm-block">Close</span>
                         </button>
-                        <button type="button" class="btn btn-danger ml-1" data-bs-dismiss="modal">
-                            <i class="bx bx-check d-block d-sm-none"></i>
-                            <span class="d-none d-sm-block">Edit</span>
-                        </button>
+                        <a href="/masterdata/destroy/{{count($crudmasterdata)==0 ? '' : $item->no_meter}}">
+                            <button type="button" class="btn btn-danger ml-1" data-bs-dismiss="modal">
+                                <i class="bx bx-check d-block d-sm-none"></i>
+                                <span class="d-none d-sm-block">hapus</span>
+                            </button>
+                        </a>
+
+
                     </div>
                 </div>
             </div>
@@ -433,3 +322,37 @@
 
     </div>
 @endsection
+
+<script>
+    function editData(item) {
+    console.log(item);
+    $("#no_meter_edit").val(item.no_meter);
+    $("#kriteria_garansi_edit").val(item.kriteria_garansi).change();
+    $("#gangguan_edit").val(item.gangguan);
+    $("#tahun_buat_edit").val(item.tahun_buat);
+    $("#tahun_ganti_edit").val(item.tahun_ganti);
+
+    // Open the edit modal
+    $("#editModal").modal("show");
+
+    console.log(item);
+}
+
+// const hapusData = (url) => {
+//     Swal.fire({
+//         title: "Hapus Data",
+//         text: "Apakah anda yakin ingin menghapus data?",
+//         icon: "warning",
+//         showCancelButton: true,
+//         confirmButtonColor: "#3085d6",
+//         cancelButtonText: "Tidak",
+//         cancelButtonColor: "#d33",
+//         confirmButtonText: "Ya",
+//     }).then((result) => {
+//         if (result.isConfirmed) {
+//             location.href = window.location.origin + url;
+//         }
+//     });
+// };
+
+</script>

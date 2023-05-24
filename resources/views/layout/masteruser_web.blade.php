@@ -8,7 +8,17 @@
 @section('masteruser')
     active
 @endsection
+@if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
 
+@if(session('error'))
+    <div class="alert alert-danger">
+        {{ session('error') }}
+    </div>
+@endif
 @section('konten')
     <div class="page-content">
         <div class="card">
@@ -77,7 +87,7 @@
         {{-- modal tambah --}}
         <div class="modal fade" id="tambahModal" tabindex="-1" aria-labelledby="tambahModalTitle" style="display: none;"
             aria-modal="true" role="dialog">
-            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg" role="document">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-md" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="tambahModalTitle">Tambah User</h5>
@@ -180,8 +190,13 @@
                                                 <h6>Role</h6>
                                             </label>
                                             <div class="col-lg-8 col-8">
-                                                <input type="text" class="form-control" id="role" placeholder=""
-                                                    name="role" value="admin" readonly required>
+                                                <fieldset class="form-group">
+                                                    <select class="form-select" name="role" id="role">
+                                                        <option value="Manager ULP">Manager ULP</option>
+                                                        <option value="Manager UP3">Manager UP3</option>
+                                                        <option value="Pihak Pabrik">Pihak Pabrik</option>
+                                                    </select>
+                                                </fieldset>
                                             </div>
                                         </div>
                                     </div>
@@ -207,7 +222,7 @@
         {{-- modal edit --}}
         <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalTitle" style="display: none;"
             aria-modal="true" role="dialog">
-            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg" role="document">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-md" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="editModalTitle">Edit User</h5>
@@ -372,8 +387,8 @@
                             <i class="bx bx-x d-block d-sm-none"></i>
                             <span class="d-none d-sm-block">Close</span>
                         </button>
-                        <a href="/masteruser-mbl/destroy/{{count($crudweb)==0 ? '' : $item->kode_user}}">
-                            <button type="button" class="btn btn-danger ml-1" data-bs-dismiss="modal" >
+                        <a href="/masteruser-web/destroy/{{count($crudweb)==0 ? '' : $item->kode_user}}">
+                            <button type="button" class="btn btn-danger ml-1" data-bs-dismiss="modal">
                                 <i class="bx bx-check d-block d-sm-none"></i>
                                 <span class="d-none d-sm-block">hapus</span>
                             </button>

@@ -29,8 +29,10 @@ class LoginController extends Controller
 
         }
         // dd('berhasil');
-        Alert::success('Berhasil', 'Berhasil Login');
-      return redirect()->intended('/dashboard');
+    //     Alert::success('Berhasil', 'Berhasil Login');
+    //   return redirect()->intended('/dashboard');
+      toast('Berhasil Login','success');
+        return redirect('/dashboard');
     } else {
         Alert::error('Login Gagal', 'Username atau password salah.')->persistent(true)->autoClose(3000);
         return redirect()->back();
