@@ -56,6 +56,9 @@
                         <span>Master Data</span>
                     </a>
                 </li>
+                @endif
+                @if (Auth::user()->role == "admin")
+
                 <li class="sidebar-item has-sub @yield('masteruser')">
                     <a href="" class='sidebar-link'>
                         <i class="bi bi-files-alt"></i>
@@ -70,6 +73,7 @@
                         </li>
                     </ul>
                 </li>
+                @endif
 
                 <li class="sidebar-item  has-sub @yield('monitoring')">
                     <a href="#" class='sidebar-link'>
@@ -85,7 +89,6 @@
                         </li>
                     </ul>
                 </li>
-                @endif
                 <li class="sidebar-item @yield('pengirimansurat')">
                     <a href="/pengiriman-surat" class='sidebar-link'>
                         <i class="bi bi-arrow-up-square"></i>

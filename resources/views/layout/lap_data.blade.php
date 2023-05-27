@@ -48,11 +48,14 @@
                     </table>
                 </div>
             </div>
-                <div class="d-flex justify-content-end">
-                    <a href="{{ route('cetakexceldb.export') }}" class="btn icon btn-primary">
-                        Cetak
-                        </a>
-                </div>
+                <form action="{{route('export')}}" method="POST">
+                    @csrf
+                    <div class="d-flex justify-content-end">
+                        <button class="btn icon btn-primary">
+                            Cetak
+                        </button>
+                    </div>
+                </form>
         </div>
 
     </div>

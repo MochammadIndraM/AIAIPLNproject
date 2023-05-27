@@ -26,8 +26,17 @@ Route::middleware(['auth'])->group(function () {
     Route::view('/penerimaan-surat', 'layout.penerimaan_surat');
 
     Route::post('/uploadexcel', [DatabaseexcelController::class, 'uploadexcel'])->name('uploadexcel');
-    Route::get('/penerimaan-surat', [DatabaseexcelController::class, 'penerimaansurat'])->name('penerimaansurat');
-    Route::get('/penerimaan-surat/{no_berita_acara}', [DatabaseexcelController::class, 'detail_surat'])->name('detail_surat');
+
+    Route::prefix('penerimaan-surat')->group(function () {
+        Route::get('/', [DatabaseexcelController::class, 'penerimaansurat'])->name('penerimaansurat');
+        Route::get('/setujuulp/{no_berita_acara}', [DatabaseexcelController::class, 'setujuiulp'])->name('setujuiulp');
+        Route::get('/tolakulp/{no_berita_acara}', [DatabaseexcelController::class, 'tolakulp'])->name('tolakulp');
+        Route::get('/setujuup3/{no_berita_acara}', [DatabaseexcelController::class, 'setujuiup3'])->name('setujuiup3');
+        Route::get('/tolakup3/{no_berita_acara}', [DatabaseexcelController::class, 'tolakup3'])->name('tolakup3');
+
+    });
+
+
 
     Route::prefix('masteruser-web')->group(function () {
         Route::get('/', [CrudUserWebController::class, 'index']);
@@ -52,7 +61,6 @@ Route::middleware(['auth'])->group(function () {
 
     Route::prefix('lap_data')->group(function () {
         Route::get('/', [Cetakexceldb::class, 'index']);
-        Route::get('/cetakexceldb/export', [Cetakexceldb::class, 'export'])->name('cetakexceldb.export');
-
+        Route::post('/cetakexceldb/export', [Cetakexceldb::class, 'export'])->name('export');
     });
 });

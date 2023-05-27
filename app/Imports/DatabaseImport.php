@@ -38,8 +38,6 @@ class DatabaseImport implements ToModel, WithHeadingRow
 
     public function model(array $row)
     {
-
-
         return new databaseexcel([
            'no_berita_acara'        => $this->beritaacara,
            'no_meter'               => $row['nomer_meter'],

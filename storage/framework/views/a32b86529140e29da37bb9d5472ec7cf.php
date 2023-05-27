@@ -139,19 +139,7 @@
                         </div>
                         <div class="modal-body">
                             <div class="form-body">
-                                <div class="row">
-                                    <div class="col-md-12 mb-12">
-                                        <div class="form-group row align-items-center">
-                                            <label for="berita-acara" class="col-lg-3 col-3 col-form-label">
-                                                <h6>No Berita Acara</h6>
-                                            </label>
-                                            <div class="col-lg-8 col-8">
-                                                <input type="text" id="berita-acara" class="form-control"
-                                                    placeholder="" name="beritaacara" required>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                    
                                 
                                 <div class="row">
                                     <div class="col-md-12 mb-12">

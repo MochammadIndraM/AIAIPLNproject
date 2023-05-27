@@ -52,11 +52,14 @@
                     </table>
                 </div>
             </div>
-                <div class="d-flex justify-content-end">
-                    <a href="<?php echo e(route('cetakexceldb.export')); ?>" class="btn icon btn-primary">
-                        Cetak
-                        </a>
-                </div>
+                <form action="<?php echo e(route('export')); ?>" method="POST">
+                    <?php echo csrf_field(); ?>
+                    <div class="d-flex justify-content-end">
+                        <button class="btn icon btn-primary">
+                            Cetak
+                        </button>
+                    </div>
+                </form>
         </div>
 
     </div>

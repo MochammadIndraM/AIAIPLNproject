@@ -14,5 +14,9 @@ class surat_detail extends Model
     public $incrementing = false;
     public $timestamps = false;
 
-    protected $fillable = array('no_meter', 'kriteria_garansi', 'gangguan', 'tahun_buat', 'tahun_ganti');
+    protected $guarded = [];
+    public function surat()
+    {
+        return $this->belongsTo(surat::class, 'no_berita_acara', 'no_berita_acara');
+    }
 }
