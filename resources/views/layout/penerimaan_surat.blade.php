@@ -27,12 +27,9 @@
                                 <th>ULP</th>
                                 <th>Nama Pengirim</th>
                                 <th>Catatan</th>
-                                @if (Auth::user()->role == 'admin' or Auth::user()->role == 'Manager ULP')
-                                    <th>Verifikasi ULP</th>
-                                @endif
-                                @if (Auth::user()->role == 'admin' or Auth::user()->role == 'Manager UP3')
-                                    <th>Verfikasi UP3</th>
-                                @endif
+                                <th>Verifikasi ULP</th>
+                                <th>Verfikasi UP3</th>
+                                <th>Verfikasi UP3</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -60,12 +57,18 @@
                                     <td>
                                         {{ $item->catatan }}
                                     </td>
-                                    @if (Auth::user()->role == 'admin' or Auth::user()->role == 'Manager ULP' or Auth::user()->role == 'Manager UP3')
+                                    @if (Auth::user()->role == 'admin' or
+                                            Auth::user()->role == 'Manager ULP' or
+                                            Auth::user()->role == 'Manager UP3' or
+                                            Auth::user()->role == 'Pihak Pabrik')
                                         <td>
                                             {{ $item->verifikasi_mulp }}
                                         </td>
                                         <td>
                                             {{ $item->verifikasi_mup3 }}
+                                        </td>
+                                        <td>
+                                            {{ $item->verifikasi_pabrik }}
                                         </td>
                                     @endif
 
@@ -96,30 +99,44 @@
                                 </svg>
                             </button>
                             <div>
-                                @if (Auth::user()->role == 'admin' or Auth::user()->role == 'Manager ULP')
+                                @if (Auth::user()->role == 'Manager ULP')
                                     <a href="/penerimaan-surat/tolakulp/" type="button" class="btn btn-danger ml-1"
                                         id="btn_tolakulp">
                                         <i class="bx bx-check d-block d-sm-none"></i>
                                         <span class="d-none d-sm-block">Tolak</span>
                                     </a>
                                 @endif
-                                @if (Auth::user()->role == 'admin' or Auth::user()->role == 'Manager ULP')
+                                @if (Auth::user()->role == 'Manager ULP')
                                     <a href="/penerimaan-surat/setujuulp/" type="button" class="btn btn-primary ml-1"
                                         id="btn_setujuiulp">
                                         <i class="bx bx-check d-block d-sm-none"></i>
                                         <span class="d-none d-sm-block">Setujui</span>
                                     </a>
                                 @endif
-                                @if (Auth::user()->role == 'admin' or Auth::user()->role == 'Manager UP3')
+                                @if (Auth::user()->role == 'Manager UP3')
                                     <a href="/penerimaan-surat/tolakup3/" type="button" class="btn btn-danger ml-1"
                                         id="btn_tolakup3">
                                         <i class="bx bx-check d-block d-sm-none"></i>
                                         <span class="d-none d-sm-block">Tolak</span>
                                     </a>
                                 @endif
-                                @if (Auth::user()->role == 'admin' or Auth::user()->role == 'Manager UP3')
+                                @if (Auth::user()->role == 'Manager UP3')
                                     <a href="/penerimaan-surat/setujuup3/" type="button" class="btn btn-primary ml-1"
                                         id="btn_setujuiup3">
+                                        <i class="bx bx-check d-block d-sm-none"></i>
+                                        <span class="d-none d-sm-block">Setujui</span>
+                                    </a>
+                                @endif
+                                @if (Auth::user()->role == 'Pihak Pabrik')
+                                    <a href="/penerimaan-surat/tolakpabrik/" type="button" class="btn btn-danger ml-1"
+                                        id="btn_tolakpabrik">
+                                        <i class="bx bx-check d-block d-sm-none"></i>
+                                        <span class="d-none d-sm-block">Tolak</span>
+                                    </a>
+                                @endif
+                                @if (Auth::user()->role == 'Pihak Pabrik')
+                                    <a href="/penerimaan-surat/setujupabrik/" type="button" class="btn btn-primary ml-1"
+                                        id="btn_setujuipabrik">
                                         <i class="bx bx-check d-block d-sm-none"></i>
                                         <span class="d-none d-sm-block">Setujui</span>
                                     </a>
@@ -173,6 +190,7 @@
         $("#btn_tolakulp").attr('href', '/penerimaan-surat/tolakulp/' + item.no_berita_acara);
         $("#btn_setujuiup3").attr('href', '/penerimaan-surat/setujuup3/' + item.no_berita_acara);
         $("#btn_tolakup3").attr('href', '/penerimaan-surat/tolakup3/' + item.no_berita_acara);
-
+        $("#btn_setujuipabrik").attr('href', '/penerimaan-surat/setujupabrik/' + item.no_berita_acara);
+        $("#btn_tolakpabrik").attr('href', '/penerimaan-surat/tolakpabrik/' + item.no_berita_acara);
     }
 </script>

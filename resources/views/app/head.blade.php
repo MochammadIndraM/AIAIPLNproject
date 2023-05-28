@@ -28,5 +28,6 @@
     @include('app.script')
 
 </body>
+@yield('otherjs')
 
 </html>

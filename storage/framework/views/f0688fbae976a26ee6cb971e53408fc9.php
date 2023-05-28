@@ -9,62 +9,123 @@
 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('konten'); ?>
     <div class="page-content">
-        <div class="card">
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-md-8">
-                        <div class="form-group row align-items-center">
+        <section class="section">
+            <div class="row">
+                <div class="col-6 col-lg-3 col-md-6">
+                    <div class="card">
+                        <div class="card-body px-4 py-4-5">
                             <div class="row">
-                                <div class="col-md-2">
-                                    <label class="col-form-label">Jenis</label>
-                                </div>
-                                <div class="col-md-1">
-                                    <label class="col-form-label">:</label>
-                                </div>
-                                <div class="col-md-8">
-                                    <fieldset class="form-group">
-                                        <select class="form-select" id="basicSelect">
-                                            <option></option>
-                                            <option>Prabayar</option>
-                                            <option>Pascabayar</option>
-                                        </select>
-                                    </fieldset>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-8">
-                        <div class="form-group row align-items-center">
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <label class="col-form-label">Waktu</label>
-                                </div>
-                                <div class="col-md-1">
-                                    <label class="col-form-label">:</label>
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="d-flex gap-5 justify-content-space-between">
-                                        <input type="date" id="first-name" class="form-control" name="fname"
-                                            placeholder="First Name">
-                                        <label class="col-form-label">s/d</label>
-                                        <input type="date" id="first-name" class="form-control" name="fname"
-                                            placeholder="First Name">
+                                <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start">
+                                    <div class="stats-icon purple mb-2">
+                                        <i class="iconly-boldShow"></i>
                                     </div>
                                 </div>
+                                <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
+                                    <h6 class="text-muted font-semibold">
+                                        Profile Views
+                                    </h6>
+                                    <h6 class="font-extrabold mb-0">112.000</h6>
+                                </div>
                             </div>
                         </div>
                     </div>
-
+                </div>
+                <div class="col-6 col-lg-3 col-md-6">
+                    <div class="card">
+                        <div class="card-body px-4 py-4-5">
+                            <div class="row">
+                                <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start">
+                                    <div class="stats-icon blue mb-2">
+                                        <i class="iconly-boldProfile"></i>
+                                    </div>
+                                </div>
+                                <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
+                                    <h6 class="text-muted font-semibold">Followers</h6>
+                                    <h6 class="font-extrabold mb-0">183.000</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-3 col-md-6">
+                    <div class="card">
+                        <div class="card-body px-4 py-4-5">
+                            <div class="row">
+                                <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start">
+                                    <div class="stats-icon green mb-2">
+                                        <i class="iconly-boldAdd-User"></i>
+                                    </div>
+                                </div>
+                                <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
+                                    <h6 class="text-muted font-semibold">Following</h6>
+                                    <h6 class="font-extrabold mb-0">80.000</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-3 col-md-6">
+                    <div class="card">
+                        <div class="card-body px-4 py-4-5">
+                            <div class="row">
+                                <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start">
+                                    <div class="stats-icon red mb-2">
+                                        <i class="iconly-boldBookmark"></i>
+                                    </div>
+                                </div>
+                                <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
+                                    <h6 class="text-muted font-semibold">Saved Post</h6>
+                                    <h6 class="font-extrabold mb-0">112</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Chart Kriteria Garansi</h4>
+                        </div>
+                        <div class="card-body">
+                            <div id="chart"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">Chart</h4>
+                        </div>
+                        <div class="card-body">
+                            <canvas id="line" width="416" height="208"
+                                style="display: block; box-sizing: border-box; height: 208px; width: 416px;"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">Chart</h4>
+                        </div>
+                        <div class="card-body">
+                            <canvas id="line" width="416" height="208"
+                                style="display: block; box-sizing: border-box; height: 208px; width: 416px;"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        </div>
-        <div class="row">
-
-        </div>
     </div>
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('otherjs'); ?>
+    <script>
+        $(document).ready(function() {
+            datachart('<?php echo e($datachart); ?>')
+        });
+    </script>
 <?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('app.head', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/zamm/Development/web/laravel/projectaiai/resources/views/layout/dashboard.blade.php ENDPATH**/ ?>

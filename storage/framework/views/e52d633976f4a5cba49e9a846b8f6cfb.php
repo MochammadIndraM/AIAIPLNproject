@@ -28,6 +28,7 @@
     <?php echo $__env->make('app.script', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 </body>
+<?php echo $__env->yieldContent('otherjs'); ?>
 
 </html>
 <?php /**PATH /home/zamm/Development/web/laravel/projectaiai/resources/views/app/head.blade.php ENDPATH**/ ?>

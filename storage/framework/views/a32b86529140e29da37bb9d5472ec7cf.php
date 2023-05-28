@@ -11,103 +11,51 @@
     <div class="page-content">
         <div class="card">
             <div class="card-body">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group row align-items-center">
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <label class="col-form-label">Jenis</label>
-                                </div>
-                                <div class="col-md-1">
-                                    <label class="col-form-label">:</label>
-                                </div>
-                                <div class="col-md-8">
-                                    <fieldset class="form-group">
-                                        <select class="form-select" id="basicSelect">
-                                            <option></option>
-                                            <option>Prabayar</option>
-                                            <option>Pascabayar</option>
-                                        </select>
-                                    </fieldset>
-                                </div>
-                            </div>
-                        </div>
+                <p>
+                  Tata Cara Upload Data
+                </p>
+                <div class="accordion" id="accordionExample">
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        #1 Pastikan Data Dalam File Sesuai
+                      </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample" style="">
+                      <div class="accordion-body">
+                        Data dalam file harus Sesuai dengan mengikuti kolom dan barisnya.
+                        Klik<a href="https://docs.google.com/spreadsheets/d/1wGy_DvyA_DAOCxt-ZDSVXiiMTCYabbLHs4rxBRSlrqk/edit#gid=1624081113" class="card-link">Disini</a> untuk melihat contoh format data yang benar.
+                      </div>
                     </div>
-
-                    <div class="col-md-6">
-                        <div class="form-group row align-items-center">
-                            <div class="col-md-2 offset-2">
-                                <label class="col-form-label">UP3</label>
-                            </div>
-                            <div class="col-md-1">
-                                <label class="col-form-label">:</label>
-                            </div>
-                            <div class="col-md-6">
-                                <input type="text" id="last-name" class="form-control" name="fname"
-                                    placeholder="Pontianak">
-                            </div>
-                        </div>
+                  </div>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTwo">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        #2 Pastikan Format File Benar
+                    </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample" style="">
+                        <div class="accordion-body">
+                            Pastikan format file yang akan diUpload adalah '.csv'
+                            Jika format masih '.xlxs' ubah terlebih dahulu <a href="https://convertio.co/id/xlsx-csv/" class="card-link">Disini</a>
+                            dengan cara import pada spreadsheet, lalu klik Menu File dan pilih download dengan format '.csv'
+                          </div>
                     </div>
+                  </div>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingThree">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        #3 Pastikan Mengisi Semua field
+                      </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample" style="">
+                      <div class="accordion-body">
+                        Ketika User Klik button Upload maka akan muncul modal untuk mengirim suratnya. Pastikan untuk mengisi semua field yang ada agar tidak tidak terjadi gagal upload
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group row align-items-center">
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <label class="col-form-label">Unit Induk</label>
-                                </div>
-                                <div class="col-md-1">
-                                    <label class="col-form-label">:</label>
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="d-flex gap-5 justify-content-space-between">
-                                        <input type="text" id="last-name" class="form-control" name="fname"
-                                            placeholder="Kalimantan Barat">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group row align-items-center">
-                            <div class="col-md-2 offset-2">
-                                <label class="col-form-label">UL3</label>
-                            </div>
-                            <div class="col-md-1">
-                                <label class="col-form-label">:</label>
-                            </div>
-                            <div class="col-md-6">
-                                <input type="text" id="last-name" class="form-control" name="fname"
-                                    placeholder="Menpawah">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group row align-items-center">
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <label class="col-form-label">Waktu</label>
-                                </div>
-                                <div class="col-md-1">
-                                    <label class="col-form-label">:</label>
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="d-flex gap-5 justify-content-space-between">
-                                        <input type="date" id="first-name" class="form-control" name="fname"
-                                            placeholder="First Name">
-                                        <label class="col-form-label">s/d</label>
-                                        <input type="date" id="first-name" class="form-control" name="fname"
-                                            placeholder="First Name">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
+              </div>
             <div class="card-body">
                 <div class="d-flex justify-content-start">
                     <div class="buttons">
@@ -119,7 +67,7 @@
         </div>
         
         <div class="modal fade" id="modalupload" tabindex="-1" aria-labelledby="tambahModalTitle" style="display: none;"
-            aria-modal="true" role="dialog" data-bs-backdrop="false">
+            aria-modal="true" role="dialog">
             <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable modal-lg"
                 role="document">
                 <div class="modal-content">
@@ -129,9 +77,9 @@
                         <div class="modal-header">
                             <h5 class="modal-title" id="tambahModalTitle">Upload Data KWH</h5>
                             <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round" class="feather feather-x">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-x">
                                     <line x1="18" y1="6" x2="6" y2="18"></line>
                                     <line x1="6" y1="6" x2="18" y2="18"></line>
                                 </svg>
@@ -139,8 +87,6 @@
                         </div>
                         <div class="modal-body">
                             <div class="form-body">
-                                    
-                                
                                 <div class="row">
                                     <div class="col-md-12 mb-12">
                                         <div class="form-group row align-items-center">

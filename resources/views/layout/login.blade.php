@@ -21,10 +21,10 @@
             <div class="col-lg-5 col-12">
                 <div id="auth-left">
                     <div class="auth-logo">
-                        <a href="index.html"><img src="assets/images/logo/logo.svg" alt="Logo"></a>
+                        <a href="index.html"><img src="assets/images/logo/logo.png" alt="Logo"></a>
                     </div>
                     <h1 class="auth-title">Log in.</h1>
-                    <p class="auth-subtitle mb-5">Log in with your data that you entered during registration.</p>
+                    <p class="auth-subtitle mb-5">Silahkan LogIn Terlebih Dahulu</p>
 
                     <form action="{{ url('/login') }}" method="POST" data-parsley-validate novalidate>
                         @csrf

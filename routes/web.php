@@ -8,8 +8,8 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\CrudUserWebController;
 use App\Http\Controllers\CrudUserMblController;
 use App\Http\Controllers\CrudMasterDataController;
-
-
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ProsesKlaimGaransi;
 use App\Models\surat;
 
 Route::get('/', [LoginController::class, 'index'])->name('login');
@@ -17,7 +17,7 @@ Route::post('/login', [LoginController::class, 'cek_login'])->name('cek_login');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::middleware(['auth'])->group(function () {
-    Route::view('/dashboard', 'layout.dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'index']);
     Route::view('/masterdata', 'layout.masterdata');
     Route::view('/masteruser-mbl', 'layout.masteruser_mbl');
     Route::view('/lap_data', 'layout.lap_data');
@@ -33,7 +33,8 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/tolakulp/{no_berita_acara}', [DatabaseexcelController::class, 'tolakulp'])->name('tolakulp');
         Route::get('/setujuup3/{no_berita_acara}', [DatabaseexcelController::class, 'setujuiup3'])->name('setujuiup3');
         Route::get('/tolakup3/{no_berita_acara}', [DatabaseexcelController::class, 'tolakup3'])->name('tolakup3');
-
+        Route::get('/setujupabrik/{no_berita_acara}', [DatabaseexcelController::class, 'setujuipabrik'])->name('setujuipabrik');
+        Route::get('/tolakpabrik/{no_berita_acara}', [DatabaseexcelController::class, 'tolakpabrik'])->name('tolakpabrik');
     });
 
 
@@ -62,5 +63,13 @@ Route::middleware(['auth'])->group(function () {
     Route::prefix('lap_data')->group(function () {
         Route::get('/', [Cetakexceldb::class, 'index']);
         Route::post('/cetakexceldb/export', [Cetakexceldb::class, 'export'])->name('export');
+    });
+    Route::prefix('proses-klaim-garansi')->group(function () {
+        Route::get('/', [ProsesKlaimGaransi::class, 'index']);
+        Route::get('/packingproses/{no_berita_acara}', [ProsesKlaimGaransi::class, 'packingproses'])->name('packingproses');
+        Route::get('/packingselesai/{no_berita_acara}', [ProsesKlaimGaransi::class, 'packingselesai'])->name('packingselesai');
+        Route::get('/kirimproses/{no_berita_acara}', [ProsesKlaimGaransi::class, 'kirimproses'])->name('kirimproses');
+        Route::get('/kirimdikirim/{no_berita_acara}', [ProsesKlaimGaransi::class, 'kirimdikirim'])->name('kirimdikirim');
+
     });
 });

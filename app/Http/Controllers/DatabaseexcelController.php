@@ -52,7 +52,12 @@ class DatabaseexcelController extends Controller
                 'nama_pengirim' => $request->namapengirim,
                 'catatan' => $request->catatan,
                 'verifikasi_mulp' => 'Menunggu',
-                'verifikasi_mup3' => 'Menunggu'
+                'verifikasi_mup3' => 'Menunggu',
+                'verifikasi_pabrik' => 'Menunggu',
+                'diterima_digudang' => 'Menunggu',
+                'surat_balasan' => 'Menunggu',
+                'proses_packing' => 'Menunggu',
+                'proses_kirim' => 'Menunggu',
 
             ]);
 
@@ -70,10 +75,17 @@ class DatabaseexcelController extends Controller
     public function penerimaansurat(Request $request)
     {
 
-        $surat = surat::with('surat_detail')->where('verifikasi_mulp', '=', 'Menunggu')->orWhere('verifikasi_mup3', '=', 'Menunggu')
+        $surat = surat::with('surat_detail')->where('verifikasi_mulp', '=', 'Menunggu')->orWhere('verifikasi_mup3', '=', 'Menunggu')->orWhere('verifikasi_pabrik', '=', 'Menunggu')
             ->get();
         // dd($surat);
         return view('layout.penerimaan_surat')->with('surat', $surat);
+    }
+
+    public function klaimgaransi(Request $request)
+    {
+        $surat = surat::all();
+        // dd($surat);
+        return view('layout.proses_klaimgaransi', compact('surat'));
     }
 
     public function setujuiulp(Request $request)
@@ -81,6 +93,8 @@ class DatabaseexcelController extends Controller
         $update = surat::find($request->no_berita_acara);
 
         $update->verifikasi_mulp = 'Disetujui';
+        $update->diterima_digudang = 'Diterima';
+
         $update->save();
         Alert::success('Berhasil', 'Berhasil Menyetujui Data');
         return redirect('/penerimaan-surat');
@@ -90,6 +104,8 @@ class DatabaseexcelController extends Controller
         $update = surat::find($request->no_berita_acara);
 
         $update->verifikasi_mulp = 'Ditolak';
+        $update->diterima_digudang = 'Belum Diterima';
+
         $update->save();
         Alert::success('Berhasil', 'Berhasil Menolak Data');
         return redirect('/penerimaan-surat');
@@ -108,6 +124,26 @@ class DatabaseexcelController extends Controller
         $update = surat::find($request->no_berita_acara);
 
         $update->verifikasi_mup3 = 'Ditolak';
+        $update->save();
+        Alert::success('Berhasil', 'Berhasil Menolak Data');
+        return redirect('/penerimaan-surat');
+    }
+    public function setujuipabrik(Request $request)
+    {
+        $update = surat::find($request->no_berita_acara);
+
+        $update->verifikasi_pabrik = 'Disetujui';
+        $update->surat_balasan = 'Diterima';
+
+        $update->save();
+        Alert::success('Berhasil', 'Berhasil Menyetujui Data');
+        return redirect('/penerimaan-surat');
+    }
+    public function tolakpabrik(Request $request)
+    {
+        $update = surat::find($request->no_berita_acara);
+
+        $update->verifikasi_pabrik = 'Ditolak';
         $update->save();
         Alert::success('Berhasil', 'Berhasil Menolak Data');
         return redirect('/penerimaan-surat');
